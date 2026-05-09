@@ -1,0 +1,18 @@
+torch>=2.1.0
+transformers>=4.45.0
+accelerate>=0.25.0
+datasets>=2.14.0
+sentencepiece
+protobuf
+scipy
+numpy
+pandas
+matplotlib
+tqdm
+
+# Optional (needed for Falcon-H1 full sequence length support):
+# causal-conv1d  # requires CUDA toolkit
+# mamba-ssm      # requires CUDA toolkit
+
+# Optional (faster attention):
+# flash-attn     # requires CUDA toolkit
