@@ -1,6 +1,6 @@
 # Component-Aware Self-Speculative Decoding in Hybrid Language Models
 
-[![arXiv](https://img.shields.io/badge/arXiv-2504.XXXXX-b31b1b.svg)](https://arxiv.org/abs/2504.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.01106-b31b1b.svg)](https://arxiv.org/abs/2605.01106)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **TL;DR** — Self-speculative decoding viability in hybrid LMs is determined by topology, not scale. Parallel hybrids (Falcon-H1) reach α = 0.68 with SSM-only drafts; sequential hybrids (Qwen3.5) collapse to α = 0.038 — an 18× gap. The perplexity ratio from attention ablation (established in Paper 2) directly predicts which architecture will succeed.
@@ -133,7 +133,7 @@ Paper 2 established that in parallel hybrids the SSM absorbs most representation
 @article{borobia2026speculative,
   title={Component-Aware Self-Speculative Decoding in Hybrid Language Models},
   author={Borobia, Hector and Segu{\'i}-Mas, Elies and Tormo-Carb{\'o}, Guillermina},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},  % update with real arXiv ID once assigned
+  journal={arXiv preprint arXiv:2605.01106},
   year={2026}
 }
 ```
