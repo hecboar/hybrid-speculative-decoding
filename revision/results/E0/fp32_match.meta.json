@@ -1,0 +1,50 @@
+{
+  "timestamp_utc": "2026-07-07T18:15:24Z",
+  "git_commit": "b6869d7dc5484916441ccec08a5e513dcb6e0d8f",
+  "torch_version": "2.11.0+cu128",
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA RTX PRO 4500 Blackwell",
+  "transformers_version": "5.13.0",
+  "experiment": "E0.3",
+  "method": "batched_verify_argmax_vs_incremental_AR_argmax scored by audited accept_reject (greedy); drafter-independent",
+  "k_nominal": 4,
+  "n_prompts": 30,
+  "max_new_tokens": 64,
+  "prefix_len": 256,
+  "models": [
+    "falcon-h1-0.5b",
+    "qwen3.5-0.8b"
+  ],
+  "summary": {
+    "falcon-h1-0.5b/fp32": {
+      "token_agreement": 1.0,
+      "exact_match_rate": 1.0,
+      "mean_matched_prefix": 64.0,
+      "n_mismatch_prompts": 0,
+      "median_margin_at_div": NaN
+    },
+    "falcon-h1-0.5b/bf16": {
+      "token_agreement": 0.99012,
+      "exact_match_rate": 0.43333333333333335,
+      "mean_matched_prefix": 43.4,
+      "n_mismatch_prompts": 17,
+      "median_margin_at_div": 0.015625
+    },
+    "qwen3.5-0.8b/fp32": {
+      "token_agreement": 1.0,
+      "exact_match_rate": 1.0,
+      "mean_matched_prefix": 64.0,
+      "n_mismatch_prompts": 0,
+      "median_margin_at_div": NaN
+    },
+    "qwen3.5-0.8b/bf16": {
+      "token_agreement": 0.9890733333333335,
+      "exact_match_rate": 0.6,
+      "mean_matched_prefix": 45.43333333333333,
+      "n_mismatch_prompts": 12,
+      "median_margin_at_div": 0.0
+    }
+  },
+  "gpu_is_l4": false,
+  "metric_is_gpu_agnostic": true
+}

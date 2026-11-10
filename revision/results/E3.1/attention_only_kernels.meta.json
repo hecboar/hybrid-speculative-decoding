@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-07-19T01:12:59Z",
+  "git_commit": "991210c1ae653cc5c972fb29b9394bf34b1300a8",
+  "torch_version": "2.4.1+cu124",
+  "cuda_version": "12.4",
+  "gpu_name": "NVIDIA L4",
+  "transformers_version": "5.13.0",
+  "experiment": "L4-kernels-attention_only",
+  "model": "falcon-h1-0.5b",
+  "strategy": "attention_only",
+  "stack": "mamba_ssm-2.3.2.post1+causal_conv1d",
+  "gpu": "NVIDIA_L4",
+  "ks": [
+    1,
+    2
+  ],
+  "n_prompts": 150,
+  "c_eff_attention_only": 0.4231370023982008,
+  "c_param_attention_only": 0.6862745098039216,
+  "t_draft_ms": 17.141023254394533,
+  "t_full_ms": 40.509393310546876,
+  "gpu_is_l4": true,
+  "s_theory_uses_frozen_tau_bar": true,
+  "note": "attention_only drafter (SSM branch zeroed); official mamba-ssm/causal-conv1d wheels (off-the-shelf lib, not kernel work); canonical L4 latency ratios; S_theory(k=1) uses the already-measured tau_bar_1 of attention_only from the frozen E3.1 L4 row",
+  "metric_is_gpu_agnostic": true
+}

@@ -1,0 +1,177 @@
+==============================================================================
+E0.5 EARLY-EXIT FORENSICS (R2.10)
+model=qwen3.5-0.8b  strategy=early_exit(frac=0.5)  n_prompts=10  n_draft=40  greedy
+GPU=NVIDIA RTX PRO 4500 Blackwell (non-L4; GPU-agnostic metric)
+Reproducing the v1 Table-8 alpha=0.000 condition; dumping raw drafter output.
+==============================================================================
+
+--- PROMPT 0 ------------------------------------------------------------
+prefix (last 160 chars): ...'efore hatching into planktonic larvae . Homarus gammarus is a highly esteemed food , and is widely caught using lobster pots , mostly around the British Isles .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.805 bits   %EOS=0  %whitespace=0  %immediate_repeat=5
+DRAFTED STRING: '()}应的ivamenteamenteімiringlygenteiringlymodomodo种植的...)...)ascaalik更生ایتresseedyافتIRMبین드ucingementeestrengaffectinglyensiveidio法等zioniidalteznell甲等子里'
+DRAFT TOKEN IDS: [21112, 101781, 54271, 8709, 243794, 396, 10980, 179632, 396, 10980, 73346, 73346, 144272, 31498, 31498, 95037, 188204, 143841, 156136, 21125, 9037, 152634, 31361, 167552, 28386, 56096, 37575, 70302, 60424, 1645, 10980, 3890, 161931, 139116, 66838, 25055, 171318, 46850, 129451, 98970]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]          '()}'  H=13.76  full_argmax=1049  | 21112:'()}':0.01  60492:'ię':0.01  96333:'尔':0.01  218052:' Adap':0.00  91285:'\\\\/':0.00
+  [ 1]           '应的'  H=12.58  full_argmax=198  | 101781:'应的':0.02  6554:'eds':0.02  210311:'λιο':0.01  136106:'真正实现':0.01  153468:'arik':0.01
+  [ 2]     'ivamente'  H=12.82  full_argmax=198  | 54271:'ivamente':0.02  92951:'idente':0.02  58897:'positor':0.02  138382:'快了':0.01  140296:'起来吧':0.01
+  [ 3]       'amente'  H=13.29  full_argmax=198  | 8709:'amente':0.02  164861:'avelmente':0.01  3890:'ensive':0.01  243794:'ім':0.01  161931:'idio':0.01
+  [ 4]           'ім'  H=13.04  full_argmax=198  | 243794:'ім':0.02  50567:'edly':0.01  161931:'idio':0.01  25055:'idal':0.01  8709:'amente':0.01
+  [ 5]           'ir'  H=12.72  full_argmax=198  | 396:'ir':0.02  6691:'irit':0.02  26790:'roc':0.02  103676:'瑙':0.01  22665:'agine':0.01
+  [ 6]        'ingly'  H=13.49  full_argmax=198  | 10980:'ingly':0.02  46977:'inci':0.01  152238:'тур':0.01  9641:'onto':0.01  17027:'antly':0.01
+  [ 7]        'gente'  H=12.17  full_argmax=198  | 179632:'gente':0.05  3518:'fully':0.03  10980:'ingly':0.03  137039:'生辉':0.02  70302:'estre':0.01
+
+--- PROMPT 1 ------------------------------------------------------------
+prefix (last 160 chars): ...'in a process called ecdysis ( moulting ) . This may occur several times a year for young lobsters , but decreases to once every 1 – 2 years for larger animals .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.589 bits   %EOS=0  %whitespace=0  %immediate_repeat=5
+DRAFTED STRING: 'vary越高越高越好程度的程度的اند上等一等اند上等一等…).上等اند透密的程度上ométrmenokaar法等одноgraphicidaliously活动等 wayspeedinglymodo和方法因人而异ehend机等possibleémentmodo和方法因人而异'
+DRAFT TOKEN IDS: [80113, 110523, 110523, 110904, 105290, 105290, 155376, 141640, 123236, 155376, 141640, 123236, 201474, 141640, 155376, 96897, 113265, 99683, 193121, 66752, 84144, 139116, 164551, 82907, 25055, 12922, 137647, 5337, 4360, 10980, 73346, 112986, 135000, 238890, 122084, 9735, 40151, 73346, 112986, 135000]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]         'vary'  H=13.00  full_argmax=561  | 80113:'vary':0.03  22856:'wing':0.03  218052:' Adap':0.01  116443:'皮的':0.01  1739:'и':0.01
+  [ 1]           '越高'  H=11.09  full_argmax=286  | 110523:'越高':0.17  8392:'kan':0.02  164861:'avelmente':0.02  110904:'越好':0.02  10980:'ingly':0.02
+  [ 2]           '越高'  H=4.89  full_argmax=96466  | 110523:'越高':0.63  144409:'越强':0.07  110904:'越好':0.02  159259:'ほど':0.01  96598:'帮':0.01
+  [ 3]           '越好'  H=13.00  full_argmax=198  | 110904:'越好':0.03  110523:'越高':0.02  133473:'越快':0.02  226047:'onnant':0.01  99970:'趋势':0.01
+  [ 4]          '程度的'  H=12.92  full_argmax=198  | 105290:'程度的':0.03  46977:'inci':0.03  110904:'越好':0.01  231686:'endada':0.01  177720:'пад':0.01
+  [ 5]          '程度的'  H=7.18  full_argmax=98617  | 105290:'程度的':0.38  99683:'程度上':0.10  98020:'程度':0.07  115551:'的程度':0.03  127599:'每一项':0.01
+  [ 6]          'اند'  H=12.77  full_argmax=98020  | 155376:'اند':0.02  1706:'vice':0.01  87447:'|m':0.01  57990:'|(':0.01  162147:'стен':0.01
+  [ 7]           '上等'  H=13.00  full_argmax=154600  | 141640:'上等':0.05  8203:'icate':0.02  16334:'ividual':0.01  173206:'apar':0.01  82028:'pai':0.01
+
+--- PROMPT 2 ------------------------------------------------------------
+prefix (last 160 chars): ...' " cutter " , which has sharp inner edges , and is used for holding or tearing the prey . Usually , the left claw is the crusher , and the right is the cutter .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.385 bits   %EOS=0  %whitespace=0  %immediate_repeat=5
+DRAFTED STRING: '要注意的是指出 bahwa imparasang達のễбель ترین和最著的莫过于当属当属üb(superordinate下同سوب有致ivamentector视网卒enantientостьernessir法等费等…),Roleheed一等avezгей帮得上得上'
+DRAFT TOKEN IDS: [145607, 99489, 74690, 161162, 166603, 223802, 148724, 160413, 192438, 131100, 122582, 121072, 139310, 139310, 155884, 54157, 8465, 126668, 218914, 138622, 54271, 4745, 106797, 101419, 24325, 1128, 93309, 27636, 396, 139116, 118781, 233671, 8758, 54660, 123236, 49822, 160936, 96598, 102510, 102510]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]        '要注意的是'  H=13.43  full_argmax=561  | 145607:'要注意的是':0.02  135012:'优势的':0.01  213396:' реже':0.01  123792:'比较大的':0.01  190553:'らは':0.01
+  [ 1]           '指出'  H=12.75  full_argmax=3709  | 99489:'指出':0.03  189226:'点を':0.02  219557:'änk':0.02  79766:'irse':0.02  74690:' bahwa':0.02
+  [ 2]       ' bahwa'  H=11.71  full_argmax=96488  | 74690:' bahwa':0.11  118379:'无误':0.03  181153:'ชัดเจน':0.02  170631:' rõ':0.02  118968:'有沒有':0.02
+  [ 3]       ' impar'  H=13.55  full_argmax=171648  | 161162:' impar':0.02  155072:'isso':0.01  99489:'指出':0.01  35360:'uld':0.01  11919:'uling':0.01
+  [ 4]        'asang'  H=14.07  full_argmax=284  | 166603:'asang':0.01  40151:'ément':0.01  136739:'尔顿':0.01  51178:'ū':0.00  36113:'sons':0.00
+  [ 5]           '達の'  H=13.37  full_argmax=280  | 223802:'達の':0.02  239457:'達は':0.02  99115:'陀':0.01  108767:'式的':0.01  62844:'cef':0.01
+  [ 6]            'ễ'  H=13.56  full_argmax=246829  | 148724:'ễ':0.02  74073:' fullest':0.01  130054:'基本都是':0.01  108596:'二是':0.01  111876:'宝贵':0.01
+  [ 7]         'бель'  H=13.75  full_argmax=220  | 160413:'бель':0.01  52685:'Ur':0.01  119320:'多姿':0.01  38118:'ان':0.01  68145:'forth':0.01
+
+--- PROMPT 3 ------------------------------------------------------------
+prefix (last 160 chars): ...'ecause , in life , the red pigment astaxanthin is bound to a protein complex , but the complex is broken up by the heat of cooking , releasing the red pigment .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 13.126 bits   %EOS=0  %whitespace=0  %immediate_repeat=2
+DRAFTED STRING: 'увensiblyibly程度的|mémentalus支持下edgeافتIRMبینбуд陀ICTormeidalagusimusimusidenteapingامت了自己 respectiveémentenateorme得上íveltezinglymodo得上也是وية来宾pas如烟افی'
+DRAFT TOKEN IDS: [149577, 67410, 6284, 105290, 87447, 40151, 83153, 118489, 6960, 152634, 31361, 167552, 156543, 99115, 14376, 171694, 25055, 56751, 74298, 74298, 92951, 13810, 190471, 110597, 18919, 40151, 30104, 171694, 102510, 33209, 171318, 10980, 73346, 102510, 97117, 150069, 120102, 39744, 145946, 166845]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]           'ув'  H=13.27  full_argmax=198  | 149577:'ув':0.02  1739:'и':0.01  78:'o':0.01  13891:' Thus':0.01  16915:' revers':0.01
+  [ 1]      'ensibly'  H=12.92  full_argmax=58503  | 67410:'ensibly':0.03  98970:'子里':0.01  33904:'etable':0.01  93495:'nish':0.01  58503:'ели':0.01
+  [ 2]         'ibly'  H=9.61  full_argmax=1116  | 6284:'ibly':0.15  105290:'程度的':0.10  37575:'emente':0.04  164861:'avelmente':0.03  99683:'程度上':0.02
+  [ 3]          '程度的'  H=12.44  full_argmax=198  | 105290:'程度的':0.03  112057:'区内':0.02  138622:'有致':0.02  26053:'ensively':0.01  196212:'строва':0.01
+  [ 4]           '|m'  H=12.40  full_argmax=198  | 87447:'|m':0.05  97148:'时候':0.03  112349:'地在':0.01  92811:'|i':0.01  193112:'gab':0.01
+  [ 5]        'ément'  H=13.11  full_argmax=91  | 40151:'ément':0.02  142064:'在床上':0.02  107011:'所能及':0.01  98194:'尺':0.01  102070:'动的':0.01
+  [ 6]         'alus'  H=13.65  full_argmax=78  | 83153:'alus':0.03  148426:'رة':0.01  74298:'imus':0.01  170754:'فق':0.01  17235:'oming':0.00
+  [ 7]          '支持下'  H=13.35  full_argmax=91  | 118489:'支持下':0.02  107011:'所能及':0.01  14499:'unn':0.01  30104:'enate':0.01  196940:'íb':0.01
+
+--- PROMPT 4 ------------------------------------------------------------
+prefix (last 160 chars): ...'y , although hybrids are unlikely to occur in the wild since their ranges do not overlap . The two species can be distinguished by a number of characteristics :'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.983 bits   %EOS=0  %whitespace=0  %immediate_repeat=8
+DRAFTED STRING: ':a上没有膛巴巴ضachu里边空虚空虚rementensiveensiveamment建的起来的ained越强越强有力四射而出的ukanERG去吧ukanordinaterizimbingidalثة地在 massesément法等éntormeagus打成令和在一起的'
+DRAFT TOKEN IDS: [42382, 134765, 103535, 104665, 55919, 62722, 128660, 130592, 130592, 52819, 3890, 3890, 61408, 119381, 111886, 2540, 144409, 144409, 100995, 130730, 138896, 26826, 161830, 121744, 26826, 8465, 23960, 167862, 25055, 150142, 112349, 30599, 40151, 139116, 159957, 171694, 56751, 126236, 247464, 121961]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]           ':a'  H=12.42  full_argmax=271  | 42382:':a':0.03  120260:'特点和':0.01  92559:'inke':0.01  147526:'说吧':0.01  138765:'会有一个':0.01
+  [ 1]          '上没有'  H=11.94  full_argmax=8  | 134765:'上没有':0.03  140191:'上和':0.02  164042:'teria':0.02  138086:'上要':0.02  70457:'cea':0.01
+  [ 2]            '膛'  H=13.24  full_argmax=220  | 103535:'膛':0.03  239585:'tempat':0.01  12225:'.edu':0.01  189347:'tach':0.01  106671:'来得及':0.01
+  [ 3]           '巴巴'  H=13.82  full_argmax=96133  | 104665:'巴巴':0.02  139063:'没有一点':0.02  139365:'那么容易':0.01  198047:'день':0.01  96819:'印':0.01
+  [ 4]            'ض'  H=13.80  full_argmax=95726  | 55919:'ض':0.01  66504:'Prec':0.01  166984:' аппар':0.01  216153:'cré':0.01  159025:'iết':0.01
+  [ 5]         'achu'  H=14.27  full_argmax=95726  | 62722:'achu':0.01  96084:'�':0.01  151152:'нев':0.01  64288:'Orth':0.00  53512:'retain':0.00
+  [ 6]           '里边'  H=12.67  full_argmax=80  | 128660:'里边':0.03  116808:'心地':0.02  113954:'本领':0.02  12959:'oup':0.02  44749:'qui':0.01
+  [ 7]           '空虚'  H=11.93  full_argmax=95762  | 130592:'空虚':0.14  77373:'china':0.02  128660:'里边':0.01  218292:'ongi':0.01  49822:'avez':0.01
+
+--- PROMPT 5 ------------------------------------------------------------
+prefix (last 160 chars): ...'The rostrum of H. americanus bears one or more spines on the underside , which are lacking in H. gammarus .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.722 bits   %EOS=0  %whitespace=0  %immediate_repeat=10
+DRAFTED STRING: 'äloch costesestsinglyinglyensive个点elesгей一级的ordaémentagogodinanciorsaorsa生的去想bardbardusherائطاند上等得上ível得上得上ível站站闸门式去想させる活动等...*"...'
+DRAFT TOKEN IDS: [2230, 242128, 229138, 17430, 10980, 10980, 3890, 137077, 170888, 160936, 95744, 100179, 55169, 40151, 52265, 195836, 153181, 153054, 153054, 97290, 139036, 63693, 63693, 49938, 222902, 155376, 141640, 102510, 33209, 102510, 102510, 33209, 137915, 128778, 96102, 139036, 173435, 137647, 207697, 50799]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]            'ä'  H=13.07  full_argmax=561  | 2230:'ä':0.05  2625:'ken':0.02  143284:'上过':0.01  19146:' aged':0.01  1739:'и':0.01
+  [ 1]         'loch'  H=12.55  full_argmax=198  | 242128:'loch':0.06  15158:'leton':0.02  11367:'kins':0.01  50567:'edly':0.01  2752:'ably':0.01
+  [ 2]      ' costes'  H=14.39  full_argmax=350  | 229138:' costes':0.01  152766:'ネル':0.01  140474:'资源丰富':0.01  60345:'urnal':0.01  125427:'之士':0.01
+  [ 3]         'ests'  H=12.77  full_argmax=641  | 17430:'ests':0.03  18575:'ieve':0.02  42684:'paring':0.01  12959:'oup':0.01  32951:'borough':0.01
+  [ 4]        'ingly'  H=9.54  full_argmax=641  | 10980:'ingly':0.32  17430:'ests':0.04  50567:'edly':0.03  163219:'طاق':0.01  2540:'ained':0.01
+  [ 5]        'ingly'  H=10.48  full_argmax=11  | 10980:'ingly':0.23  3890:'ensive':0.02  26053:'ensively':0.01  23583:'ewise':0.01  6799:'ously':0.01
+  [ 6]       'ensive'  H=12.33  full_argmax=198  | 3890:'ensive':0.06  75759:'bos':0.02  26053:'ensively':0.01  138622:'有致':0.01  81839:'ости':0.01
+  [ 7]           '个点'  H=12.98  full_argmax=198  | 137077:'个点':0.02  62826:'iliki':0.01  138464:'地发现':0.01  167647:'omot':0.01  742:'lect':0.01
+
+--- PROMPT 6 ------------------------------------------------------------
+prefix (last 160 chars): ...'The spines on the claws of H. americanus are red or red @-@ tipped , while those of H. gammarus are white or white @-@ tipped .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.806 bits   %EOS=0  %whitespace=0  %immediate_repeat=15
+DRAFTED STRING: ' agediran更不是建制也没有也不需要amment蓝色字体бойбойinglyamente服务等etcreisquiunctidalidal最深和最著的least和最样的時候indre一班icularnyeuest和最和最和最和最和最…).天长长着腻'
+DRAFT TOKEN IDS: [19146, 52852, 142973, 132664, 101699, 133501, 61408, 123208, 155070, 155070, 10980, 8709, 124459, 11763, 162785, 44749, 19324, 25055, 25055, 121472, 131100, 122582, 53415, 131100, 97570, 99224, 68432, 121801, 22893, 240052, 2947, 131100, 131100, 131100, 131100, 131100, 201474, 124092, 137535, 99808]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]        ' aged'  H=13.37  full_argmax=198  | 19146:' aged':0.02  137661:'原因的':0.01  10117:'eah':0.01  97720:'色的':0.01  46805:'ulet':0.01
+  [ 1]         'iran'  H=13.73  full_argmax=641  | 52852:'iran':0.01  99683:'程度上':0.01  66870:'loser':0.01  108579:'的情况下':0.01  1281:'ateg':0.01
+  [ 2]          '更不是'  H=13.50  full_argmax=198  | 142973:'更不是':0.02  25055:'idal':0.01  9060:'apes':0.01  160176:'uncul':0.01  122105:'分院':0.01
+  [ 3]           '建制'  H=13.63  full_argmax=198  | 132664:'建制':0.02  96598:'帮':0.01  144409:'越强':0.01  80854:'Touches':0.01  601:'ould':0.01
+  [ 4]          '也没有'  H=14.13  full_argmax=97180  | 101699:'也没有':0.01  153589:'кор':0.01  189030:'bant':0.01  43224:'nor':0.01  11040:' entirely':0.01
+  [ 5]         '也不需要'  H=11.64  full_argmax=3709  | 133501:'也不需要':0.13  116863:'太大的':0.03  106671:'来得及':0.03  102523:'丝毫':0.02  185653:' alcun':0.01
+  [ 6]       'amment'  H=12.62  full_argmax=1710  | 61408:'amment':0.02  124203:'任何的':0.02  95133:'ə':0.02  102523:'丝毫':0.01  133501:'也不需要':0.01
+  [ 7]         '蓝色字体'  H=13.40  full_argmax=220  | 123208:'蓝色字体':0.02  207714:'شرق':0.01  170651:'rech':0.01  102770:'处长':0.01  56751:'agus':0.01
+
+--- PROMPT 7 ------------------------------------------------------------
+prefix (last 160 chars): ...'The underside of the claw of H. americanus is orange or red , while that of H. gammarus is creamy white or very pale red .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 12.566 bits   %EOS=0  %whitespace=0  %immediate_repeat=10
+DRAFTED STRING: '色的時候mez子里зывbard再起bard最强和最著的ترین和最和最和最和最…).iran地区和别的等其他aveziruodinessentialienstodik地完成fertigests和最和最ändenствий陀ICT里去اد了自己 respective'
+DRAFT TOKEN IDS: [97720, 99224, 79322, 98970, 152953, 63693, 135535, 63693, 110684, 131100, 122582, 156073, 131100, 131100, 131100, 131100, 201474, 52852, 133538, 109244, 120607, 49822, 189796, 195836, 46867, 153353, 166608, 125718, 210294, 17430, 131100, 131100, 163717, 156862, 99115, 14376, 141882, 63191, 110597, 18919]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]           '色的'  H=13.31  full_argmax=198  | 97720:'色的':0.02  132965:'回的':0.01  102790:'快地':0.01  19146:' aged':0.01  34978:';)':0.01
+  [ 1]           '時候'  H=11.38  full_argmax=130445  | 99224:'時候':0.13  97148:'时候':0.04  98020:'程度':0.02  21830:'embre':0.02  28981:'ilib':0.01
+  [ 2]          'mez'  H=13.38  full_argmax=3709  | 79322:'mez':0.05  23583:'ewise':0.01  194856:'ljiv':0.01  171690:'ensk':0.01  170017:' nào':0.01
+  [ 3]           '子里'  H=13.40  full_argmax=198  | 98970:'子里':0.04  69689:'iless':0.04  28403:'urf':0.02  167552:'بین':0.01  2729:'rist':0.01
+  [ 4]          'зыв'  H=12.69  full_argmax=95726  | 152953:'зыв':0.02  98126:'东西':0.02  108601:'的东西':0.01  52265:'agog':0.01  118732:'藏着':0.01
+  [ 5]         'bard'  H=13.54  full_argmax=1424  | 63693:'bard':0.01  226880:'endienst':0.01  6122:'si':0.01  148967:'اض':0.01  29342:'り':0.01
+  [ 6]           '再起'  H=13.71  full_argmax=64  | 135535:'再起':0.01  247837:'先端':0.01  63693:'bard':0.01  114263:'湖区':0.01  50567:'edly':0.01
+  [ 7]         'bard'  H=13.91  full_argmax=198  | 63693:'bard':0.01  54271:'ivamente':0.00  155070:'бой':0.00  48666:'ót':0.00  36974:'iku':0.00
+
+--- PROMPT 8 ------------------------------------------------------------
+prefix (last 160 chars): ...'to 12 months , depending on the temperature , attached to her pleopods . Females carrying eggs are said to be " berried " and can be found throughout the year .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 13.180 bits   %EOS=0  %whitespace=0  %immediate_repeat=0
+DRAFTED STRING: ' olmakoundrim等其他avezimpat着小ioned等其他avezlent等其他周三αι自己自己不活动等类等possibleiriaidal群岛工作委员会成员mezilessmodo法等...**和个人主义äremenokaar门下éntablishirate门下avec'
+DRAFT TOKEN IDS: [180862, 770, 6085, 120607, 49822, 226465, 123108, 93220, 120607, 49822, 184006, 120607, 114002, 85845, 96115, 138179, 137647, 136951, 9735, 200545, 25055, 121631, 133936, 97827, 79322, 69689, 73346, 139116, 192549, 105460, 97442, 45125, 66752, 84144, 145749, 159957, 4940, 85298, 145749, 84311]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]       ' olmak'  H=13.41  full_argmax=561  | 180862:' olmak':0.01  9397:'/>':0.01  139051:'短的':0.01  66760:'();"':0.01  148037:'高密':0.00
+  [ 1]         'ound'  H=12.47  full_argmax=32070  | 770:'ound':0.03  2540:'ained':0.02  105098:'自在':0.02  14558:'lah':0.01  158134:'irme':0.01
+  [ 2]          'rim'  H=13.06  full_argmax=64  | 6085:'rim':0.03  483:'orm':0.02  50567:'edly':0.02  22737:'osc':0.01  15279:'lessly':0.01
+  [ 3]          '等其他'  H=13.39  full_argmax=64  | 120607:'等其他':0.03  161162:' impar':0.01  148967:'اض':0.01  139116:'法等':0.01  160176:'uncul':0.01
+  [ 4]         'avez'  H=11.62  full_argmax=98277  | 49822:'avez':0.15  104944:'不适':0.02  114002:'周三':0.02  120607:'等其他':0.01  79322:'mez':0.01
+  [ 5]        'impat'  H=13.07  full_argmax=248044  | 226465:'impat':0.04  189796:'iru':0.01  63693:'bard':0.01  44749:'qui':0.01  200545:'iria':0.01
+  [ 6]           '着小'  H=14.00  full_argmax=12476  | 123108:'着小':0.01  120607:'等其他':0.01  99415:'隙':0.01  110009:'有用':0.01  225762:'rake':0.01
+  [ 7]        'ioned'  H=13.07  full_argmax=248044  | 93220:'ioned':0.01  185943:'ônica':0.01  194131:' جداً':0.01  228116:'gad':0.01  155070:'бой':0.01
+
+--- PROMPT 9 ------------------------------------------------------------
+prefix (last 160 chars): ...'000 survives to the benthic phase . When they reach a carapace length of 15 mm ( 0 @.@ 59 in ) , the juveniles leave their burrows and start their adult lives .'
+na (leading accepted vs full argmax) = 0 / 40   -> A2=0 A4=0 A8=0
+mean entropy = 13.048 bits   %EOS=0  %whitespace=0  %immediate_repeat=8
+DRAFTED STRING: 'иotaljadi等资源源何在fallenidthorme那里 chốnافيirmeontoontoonto三地三地간에三地之间ánorme生的荫افيtezافتENERpilotecienst图为展示了很清楚地将égor门下ويبrix'
+DRAFT TOKEN IDS: [1739, 2293, 88871, 146910, 96214, 135352, 185451, 1069, 171694, 108599, 224276, 161168, 158134, 9641, 9641, 9641, 129539, 129539, 231190, 129539, 98252, 11062, 171694, 97290, 107825, 161168, 171318, 152634, 11915, 183724, 85125, 153353, 115097, 111565, 125578, 114028, 90497, 145749, 210503, 17810]
+first 8 steps (token | entropy_bits | top-5 [id:str:p]):
+  [ 0]            'и'  H=12.93  full_argmax=561  | 1739:'и':0.06  137324:'售价为':0.02  108868:'成功的':0.02  145607:'要注意的是':0.01  146656:'式为':0.01
+  [ 1]         'otal'  H=13.07  full_argmax=3966  | 2293:'otal':0.03  158134:'irme':0.02  140270:'子是':0.01  123438:'最强的':0.01  111324:'子和':0.01
+  [ 2]         'jadi'  H=14.59  full_argmax=64  | 88871:'jadi':0.01  59260:' Kushner':0.01  63693:'bard':0.01  134571:'镇人民政府':0.00  89637:'isks':0.00
+  [ 3]          '等资源'  H=13.91  full_argmax=1116  | 146910:'等资源':0.01  233784:'๋ง':0.01  87981:'Apis':0.00  160176:'uncul':0.00  48298:'óm':0.00
+  [ 4]            '源'  H=12.94  full_argmax=271  | 96214:'源':0.03  2348:'source':0.02  105923:'支柱':0.02  97891:'来源':0.01  79322:'mez':0.01
+  [ 5]           '何在'  H=13.40  full_argmax=271  | 135352:'何在':0.02  79322:'mez':0.02  116144:'建设工作':0.01  156876:'öss':0.01  212151:' fiable':0.01
+  [ 6]       'fallen'  H=12.39  full_argmax=10992  | 185451:'fallen':0.03  118591:'源泉':0.02  31519:'falls':0.02  232787:'？**':0.01  78461:'？”':0.01
+  [ 7]         'idth'  H=13.86  full_argmax=13077  | 1069:'idth':0.01  36467:'être':0.01  2022:'ness':0.01  43756:'/rest':0.00  62597:' unst':0.00
+
+==============================================================================
+AGGREGATE (mean over 10 prompts):
+  A_2=0.000  A_4=0.000  A_8=0.000  mean na@40=0.00
+  mean entropy=12.82 bits
+  %EOS=0.0  %whitespace=0.0  %immediate_repeat=6.8
+
+VERDICT: reproduces v1's alpha~=0.000 early-exit-50% condition (na=0 on EVERY prompt: the full verifier rejects at draft position 0).
+
+The failure mode is NOT the EOS/whitespace collapse PLAN E0.5 anticipated. Instead the truncated (first-50%-layers) drafter emits HIGH-ENTROPY, semantically-incoherent multilingual subword tokens (mean ~12.8 bits over a ~150k vocab; %EOS=%whitespace=0, immediate repetition only ~5-7%). The half-depth model has no calibrated next-token distribution for English WikiText continuation, so its greedy argmax lands on rare cross-lingual fragments the full model never proposes -> instant rejection. This is a cleaner, more damning result than a degenerate loop: early exit does not merely stall, it produces out-of-distribution tokens. Text for revised sec 5.6 footnote / supplement (R2.10).
+==============================================================================

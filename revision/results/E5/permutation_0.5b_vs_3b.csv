@@ -1,0 +1,2 @@
+comparison,metric,n_a,n_b,mean_a,mean_b,observed_diff,p_value,n_perm,verdict
+falcon-0.5b_vs_3b,accepted_length_k4_T0,150,150,1.5733,1.56,0.0133,0.9618,10000,not significant

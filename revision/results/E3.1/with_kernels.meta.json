@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-07-11T18:19:52Z",
+  "git_commit": "5821caaeaeb6bd14e72640bfa802057a28f449a7",
+  "torch_version": "2.4.1+cu124",
+  "cuda_version": "12.4",
+  "gpu_name": "NVIDIA L4",
+  "transformers_version": "5.13.0",
+  "experiment": "L4-kernels",
+  "model": "falcon-h1-0.5b",
+  "stack": "mamba_ssm-2.3.2.post1+causal_conv1d",
+  "gpu": "NVIDIA_L4",
+  "ks": [
+    1,
+    2
+  ],
+  "lengths": [
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "n_prompts": 150,
+  "c_eff_component_only": 0.7842909001037901,
+  "gpu_is_l4": true,
+  "note": "official mamba-ssm/causal-conv1d wheels (off-the-shelf lib, not kernel work); canonical L4 latency ratios",
+  "metric_is_gpu_agnostic": true
+}

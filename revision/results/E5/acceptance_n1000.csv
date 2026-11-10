@@ -1,0 +1,3 @@
+model,arch_paradigm,strategy,k,temperature,A_k,ci_lo,ci_hi,tau_bar,all_accept_rate,n_prompts,per_prompt_file
+qwen3.5-0.8b,sequential,component_only,2,0.0,0.0385,0.029,0.048,0.077,0.014,1000,results/E5/perprompt/qwen3.5-0.8b__component_only__k2__n1000.pkl
+qwen3.5-0.8b,sequential,component_only,4,0.0,0.01975,0.01475,0.025,0.079,0.001,1000,results/E5/perprompt/qwen3.5-0.8b__component_only__k4__n1000.pkl

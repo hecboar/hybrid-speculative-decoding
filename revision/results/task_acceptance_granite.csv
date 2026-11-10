@@ -1,0 +1,4 @@
+model,task,acceptance_rate,ci_lo,ci_hi,mean_accepted_length
+granite,mmlu,0.19125,0.15,0.235,0.765
+granite,gsm8k,0.0625,0.0375,0.09125,0.25
+granite,alpaca,0.315,0.26,0.37,1.26

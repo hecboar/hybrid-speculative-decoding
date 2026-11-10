@@ -1,0 +1,12 @@
+# Pinned revision stack. On an L4 (Ada, sm_89) the DEFAULT torch wheel is fine
+# (cu124/cu128 both include sm_89) — do NOT force cu128 here (that was only needed
+# for the RTX PRO 4500 Blackwell sm_120 pod). Pin the rest to what the code was
+# developed against.
+transformers==5.13.0
+datasets==5.0.0
+accelerate==1.14.0
+scipy==1.17.1
+matplotlib==3.11.0
+# torch: install an sm_89-capable build separately (e.g. `pip install torch`,
+# or reuse the pod image's torch). causal-conv1d + mamba-ssm are installed
+# best-effort by run_L4.sh (they have sm_89 wheels and activate Falcon's fast path).

@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-07-11T00:54:06Z",
+  "git_commit": "bfafe153829a632cd2e8d2ae6595e658a42ceef2",
+  "torch_version": "2.4.1+cu124",
+  "cuda_version": "12.4",
+  "gpu_name": "NVIDIA L4",
+  "transformers_version": "5.13.0",
+  "experiment": "E3.2",
+  "model": "falcon-h1-0.5b",
+  "strategy": "component_only",
+  "ks": [
+    1,
+    2,
+    4
+  ],
+  "reps": 3,
+  "ar_tok_s": 35.9400173149314,
+  "max_new": 64,
+  "gpu": "NVIDIA_L4",
+  "note": "CANONICAL L4 latency",
+  "gpu_is_l4": true,
+  "metric_is_gpu_agnostic": false
+}

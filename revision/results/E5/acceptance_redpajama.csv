@@ -1,0 +1,5 @@
+model,arch_paradigm,strategy,k,temperature,A_k,ci_lo,ci_hi,tau_bar,all_accept_rate,n_prompts,per_prompt_file,corpus,corpus_date
+falcon-h1-0.5b,parallel,component_only,2,0.0,0.5125,0.4525,0.57,1.025,0.37,200,results/E5/perprompt/redpajama_real__falcon-h1-0.5b__k2.pkl,"RedPajama-Data-1T-Sample (CommonCrawl slice, streamed from parent 1T)",2023
+falcon-h1-0.5b,parallel,component_only,4,0.0,0.345,0.29875,0.39375,1.38,0.13,200,results/E5/perprompt/redpajama_real__falcon-h1-0.5b__k4.pkl,"RedPajama-Data-1T-Sample (CommonCrawl slice, streamed from parent 1T)",2023
+qwen3.5-0.8b,sequential,component_only,2,0.0,0.1125,0.08,0.145,0.225,0.03,200,results/E5/perprompt/redpajama_real__qwen3.5-0.8b__k2.pkl,"RedPajama-Data-1T-Sample (CommonCrawl slice, streamed from parent 1T)",2023
+qwen3.5-0.8b,sequential,component_only,4,0.0,0.055,0.03875,0.0725,0.22,0.0,200,results/E5/perprompt/redpajama_real__qwen3.5-0.8b__k4.pkl,"RedPajama-Data-1T-Sample (CommonCrawl slice, streamed from parent 1T)",2023

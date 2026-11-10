@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-07-08T10:34:34Z",
+  "git_commit": "5e6f599b0aea3bd27dd35dc3d4b3405eb61a8eb5",
+  "torch_version": "2.11.0+cu128",
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA RTX PRO 4500 Blackwell",
+  "transformers_version": "5.13.0",
+  "experiment": "E2",
+  "model": "qwen3.5-0.8b",
+  "attn_idx": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23
+  ],
+  "ranked_by_ppl": [
+    23,
+    15,
+    19,
+    3,
+    7,
+    11
+  ],
+  "per_layer_impact": {
+    "3": 1.101,
+    "7": 0.682,
+    "11": 0.541,
+    "15": 3.074,
+    "19": 2.574,
+    "23": 49.833
+  },
+  "n_prompts": 250,
+  "ks": [
+    2,
+    4
+  ],
+  "gpu_is_l4": false,
+  "metric_is_gpu_agnostic": true
+}

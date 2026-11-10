@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-07-10T18:09:11Z",
+  "git_commit": "2bb6548afe334b110874baa1297261d8f5de2ed2",
+  "torch_version": "2.4.1+cu124",
+  "cuda_version": "12.4",
+  "gpu_name": "NVIDIA L4",
+  "transformers_version": "5.13.0",
+  "experiment": "E3.1",
+  "model": "falcon-h1-0.5b",
+  "policy": "keep_first_last_stride",
+  "ks": [
+    1,
+    2,
+    4
+  ],
+  "n_prompts": 150,
+  "any_s_theory_gt_1": true,
+  "gpu": "NVIDIA_L4",
+  "c_eff_note": "draft/full forward-time ratio, use_cache=False, CUDA events; the ratio is GPU-agnostic (canonical on L4, feasibility elsewhere)",
+  "gpu_is_l4": true,
+  "metric_is_gpu_agnostic": true
+}

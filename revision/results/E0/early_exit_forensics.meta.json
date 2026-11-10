@@ -1,0 +1,137 @@
+{
+  "timestamp_utc": "2026-07-07T22:45:38Z",
+  "git_commit": "5f9a76bb47345d94b2dc9351190570686c99f704",
+  "torch_version": "2.11.0+cu128",
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA RTX PRO 4500 Blackwell",
+  "transformers_version": "5.13.0",
+  "experiment": "E0.5",
+  "model": "qwen3.5-0.8b",
+  "strategy": "early_exit(0.5)",
+  "n_prompts": 10,
+  "n_draft": 40,
+  "aggregate": {
+    "na_at_k40": 0.0,
+    "A2": 0.0,
+    "A4": 0.0,
+    "A8": 0.0,
+    "mean_entropy_bits": 12.821006368994713,
+    "pct_eos": 0.0,
+    "pct_whitespace": 0.0,
+    "pct_immediate_repeat": 6.75
+  },
+  "per_prompt": [
+    {
+      "prompt_id": 0,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.805120873451234,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 5.0
+    },
+    {
+      "prompt_id": 1,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.58866572380066,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 5.0
+    },
+    {
+      "prompt_id": 2,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.385143834352494,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 5.0
+    },
+    {
+      "prompt_id": 3,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 13.125557780265808,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 2.5
+    },
+    {
+      "prompt_id": 4,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.983183348178864,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 7.5
+    },
+    {
+      "prompt_id": 5,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.722370982170105,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 10.0
+    },
+    {
+      "prompt_id": 6,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.805692720413209,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 15.0
+    },
+    {
+      "prompt_id": 7,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 12.566124725341798,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 10.0
+    },
+    {
+      "prompt_id": 8,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 13.180169653892516,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 0.0
+    },
+    {
+      "prompt_id": 9,
+      "na_at_k40": 0,
+      "A2": 0,
+      "A4": 0,
+      "A8": 0,
+      "mean_entropy_bits": 13.048034048080444,
+      "pct_eos": 0.0,
+      "pct_whitespace": 0.0,
+      "pct_immediate_repeat": 7.5
+    }
+  ],
+  "gpu_is_l4": false,
+  "metric_is_gpu_agnostic": true
+}

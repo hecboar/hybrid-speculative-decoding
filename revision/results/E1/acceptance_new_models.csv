@@ -1,0 +1,16 @@
+model,arch_paradigm,strategy,k,temperature,A_k,ci_lo,ci_hi,tau_bar,all_accept_rate,n_prompts,per_prompt_file
+lfm2,sequential,component_only,2,0.0,0.0,0.0,0.0,0.0,0.0,150,results/E1/perprompt/lfm2__component_only__k2__T0.0.pkl
+lfm2,sequential,component_only,4,0.0,0.0,0.0,0.0,0.0,0.0,150,results/E1/perprompt/lfm2__component_only__k4__T0.0.pkl
+granite,sequential,component_only,2,0.0,0.50333,0.44,0.57,1.0067,0.33333,150,results/E1/perprompt/granite__component_only__k2__T0.0.pkl
+granite,sequential,component_only,4,0.0,0.35333,0.29833,0.41,1.4133,0.15333,150,results/E1/perprompt/granite__component_only__k4__T0.0.pkl
+qwen35_2b,sequential,component_only,2,0.0,0.06667,0.03333,0.10333,0.1333,0.03333,150,results/E1/perprompt/qwen35_2b__component_only__k2__T0.0.pkl
+qwen35_2b,sequential,component_only,4,0.0,0.03667,0.01833,0.05833,0.1467,0.00667,150,results/E1/perprompt/qwen35_2b__component_only__k4__T0.0.pkl
+falcon15,parallel,component_only,2,0.0,0.37667,0.30667,0.44667,0.7533,0.28,150,results/E1/perprompt/falcon15__component_only__k2__T0.0.pkl
+falcon15,parallel,component_only,4,0.0,0.21167,0.17,0.255,0.8467,0.04,150,results/E1/perprompt/falcon15__component_only__k4__T0.0.pkl
+falcon-h1-0.5b,parallel,component_only,2,0.0,0.71,0.64333,0.77333,1.42,0.64,150,results/E1/perprompt/falcon-h1-0.5b__component_only__k2__T0.0.pkl
+falcon-h1-0.5b,parallel,component_only,4,0.0,0.39333,0.35329,0.435,1.5733,0.03333,150,results/E1/perprompt/falcon-h1-0.5b__component_only__k4__T0.0.pkl
+qwen3.5-0.8b,sequential,component_only,2,0.0,0.03,0.01333,0.05,0.06,0.0,150,results/E1/perprompt/qwen3.5-0.8b__component_only__k2__T0.0.pkl
+qwen3.5-0.8b,sequential,component_only,4,0.0,0.015,0.00667,0.025,0.06,0.0,150,results/E1/perprompt/qwen3.5-0.8b__component_only__k4__T0.0.pkl
+zamba2,parallel,component_only,2,0.0,0.36667,0.3,0.43333,0.7333,0.26,150,results/E1/perprompt/zamba2__component_only__k2__T0.0.pkl
+zamba2,parallel,component_only,4,0.0,0.20333,0.16333,0.245,0.8133,0.02,150,results/E1/perprompt/zamba2__component_only__k4__T0.0.pkl
+falcon-h1-3b,parallel,component_only,4,0.0,0.39,0.34,0.44,1.56,0.10667,150,results/E1/perprompt/falcon-h1-3b__component_only__k4__T0.0.pkl

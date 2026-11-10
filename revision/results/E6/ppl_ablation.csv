@@ -1,0 +1,10 @@
+model,arch_paradigm,ppl_full,ppl_no_attn,ppl_ratio,log10_ratio,n_tokens
+falcon-h1-0.5b,parallel,7.8121,20.206,2.5865,0.4127,31948
+lfm2,sequential,25.3869,40958.8477,1613.385,3.2077,25790
+falcon15,parallel,6.4639,13.826,2.1389,0.3302,31704
+zamba2,parallel,6.8176,65.6924,9.6357,0.9839,28725
+falcon-h1-3b,parallel,5.6255,12.7013,2.2578,0.3537,31704
+qwen2.5-0.5b,transformer,11.9764,35.6585,2.9774,0.4738,26135
+qwen3.5-0.8b,sequential,12.0433,963.9095,80.0372,1.9033,26270
+qwen35_2b,sequential,9.4405,211.8288,22.4382,1.351,26270
+granite,sequential,9.2137,30.0306,3.2593,0.5131,24883

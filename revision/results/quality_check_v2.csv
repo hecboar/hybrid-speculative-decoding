@@ -1,0 +1,4 @@
+model,strategy,match_rate,mismatches
+qwen3.5-0.8b,linear_only,0.96,2
+falcon-h1-0.5b,ssm_only,0.96,2
+qwen2.5-0.5b,layer_skip,0.9,5

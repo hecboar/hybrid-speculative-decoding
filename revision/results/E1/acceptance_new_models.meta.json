@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-07-08T07:22:39Z",
+  "git_commit": "87f9c7fe73943181aef265ae691c0dd346781395",
+  "torch_version": "2.11.0+cu128",
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA RTX PRO 4500 Blackwell",
+  "transformers_version": "5.13.0",
+  "experiment": "E1",
+  "keys": [
+    "falcon-h1-3b"
+  ],
+  "k": [
+    4
+  ],
+  "n_prompts": 150,
+  "temperature": 0.0,
+  "metric": "A_k := E[na]/k (v1 mean-fraction); all_accept_rate=mean(na==k)",
+  "gpu_is_l4": false,
+  "metric_is_gpu_agnostic": true
+}

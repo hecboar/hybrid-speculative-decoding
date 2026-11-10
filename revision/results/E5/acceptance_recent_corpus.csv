@@ -1,0 +1,5 @@
+model,arch_paradigm,strategy,k,temperature,A_k,ci_lo,ci_hi,tau_bar,all_accept_rate,n_prompts,per_prompt_file,corpus,corpus_date
+falcon-h1-0.5b,parallel,component_only,2,0.0,0.6,0.5425,0.655,1.2,0.445,200,results/E5/perprompt/redpajama__falcon-h1-0.5b__k2.pkl,C4-en (RedPajama unavailable on Hub),2019
+falcon-h1-0.5b,parallel,component_only,4,0.0,0.415,0.3675,0.465,1.66,0.17,200,results/E5/perprompt/redpajama__falcon-h1-0.5b__k4.pkl,C4-en (RedPajama unavailable on Hub),2019
+qwen3.5-0.8b,sequential,component_only,2,0.0,0.0675,0.0425,0.095,0.135,0.015,200,results/E5/perprompt/redpajama__qwen3.5-0.8b__k2.pkl,C4-en (RedPajama unavailable on Hub),2019
+qwen3.5-0.8b,sequential,component_only,4,0.0,0.035,0.02125,0.05,0.14,0.0,200,results/E5/perprompt/redpajama__qwen3.5-0.8b__k4.pkl,C4-en (RedPajama unavailable on Hub),2019

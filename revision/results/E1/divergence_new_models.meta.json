@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-07-07T23:34:28Z",
+  "git_commit": "940e61f912478c669227fd0f5969b26ac4873437",
+  "torch_version": "2.11.0+cu128",
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA RTX PRO 4500 Blackwell",
+  "transformers_version": "5.13.0",
+  "experiment": "E1-divergence",
+  "keys": [
+    "lfm2",
+    "granite",
+    "zamba2"
+  ],
+  "n_prompts": 100,
+  "pos_per_seq": 50,
+  "gpu_is_l4": false,
+  "metric_is_gpu_agnostic": true
+}

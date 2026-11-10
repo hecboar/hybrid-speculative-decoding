@@ -1,0 +1,4 @@
+model,arch_paradigm,strategy,d_tv_mean,d_tv_std,d_tv_median,d_tv_p90,top1_agreement,kl_mean,n_positions,n_seqs
+lfm2,sequential,component_only,0.57911,0.11446,0.56818,0.69373,0.03062,7.86478,4996,100
+granite,sequential,component_only,0.3952,0.25119,0.35219,0.77207,0.55126,1.16363,4994,100
+zamba2,parallel,component_only,0.5287,0.22158,0.54293,0.80781,0.3804,2.13611,5000,100

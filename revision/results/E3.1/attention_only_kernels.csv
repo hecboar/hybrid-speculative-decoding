@@ -1,0 +1,3 @@
+model,strategy,k,A_k,ci_lo,ci_hi,tau_bar_frozen,tau_bar_measured,c_param,c_eff,s_theory,n_prompts,gpu,stack
+falcon-h1-0.5b,attention_only,1,0.50667,0.42667,0.58667,0.5133,0.5067,0.68627,0.42314,1.06336,150,NVIDIA_L4,mamba_ssm-2.3.2.post1+causal_conv1d
+falcon-h1-0.5b,attention_only,2,0.35333,0.29333,0.41667,0.72,0.7067,0.68627,0.42314,0.93161,150,NVIDIA_L4,mamba_ssm-2.3.2.post1+causal_conv1d

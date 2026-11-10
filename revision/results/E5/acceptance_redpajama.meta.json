@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-07-19T00:19:46Z",
+  "git_commit": "7ba37c642b953f4308fde45b6687b8ce9e9b1f73",
+  "torch_version": "2.4.1+cu124",
+  "cuda_version": "12.4",
+  "gpu_name": "NVIDIA L4",
+  "transformers_version": "5.13.0",
+  "experiment": "E5.2b",
+  "corpus": {
+    "corpus": "RedPajama-Data-1T-Sample (CommonCrawl slice, streamed from parent 1T)",
+    "hf_id": "togethercomputer/RedPajama-Data-1T",
+    "config": "common_crawl",
+    "corpus_date": "2023",
+    "split": "train",
+    "n": 200,
+    "shard_list_file": "urls/common_crawl.txt",
+    "shards_used": [
+      "https://data.together.xyz/redpajama-data-1T/v1.0.0/common_crawl/2019-30/en_head_0000.json.gz.dedup.classifier.jsonl.zst"
+    ],
+    "max_chars_prefix": 2000,
+    "note": "RedPajama-Data-1T-Sample id is 404; streamed the CommonCrawl slice of the live parent RedPajama-Data-1T, bypassing the defunct dataset loading script (raw .jsonl.zst via json loader)."
+  },
+  "models": [
+    "falcon-h1-0.5b",
+    "qwen3.5-0.8b"
+  ],
+  "ks": [
+    2,
+    4
+  ],
+  "gpu_is_l4": false,
+  "metric_is_gpu_agnostic": true
+}
