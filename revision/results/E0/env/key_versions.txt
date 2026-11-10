@@ -1,0 +1,57 @@
+# Environment key versions snapshot
+# Generated for E0 environment lock (pre-teardown)
+
+python                : 3.11.10
+torch                 : 2.4.1+cu124
+torch.version.cuda    : 12.4
+torch.cuda.is_available: True
+gpu_name (torch)      : NVIDIA RTX PRO 4500 Blackwell
+transformers          : 5.13.0
+accelerate            : 1.14.0
+
+# --- Mamba acceleration stack (basis of c_eff=0.784 with accelerated kernels) ---
+mamba-ssm             : NOT INSTALLED  [MISSING -> accelerated kernels unavailable]
+causal-conv1d         : NOT INSTALLED  [MISSING -> accelerated kernels unavailable]
+
+# --- GPU canonicality & compatibility flags ---
+gpu_canonical         : NO  -> this pod is NOT an L4. GPU = NVIDIA RTX PRO 4500 Blackwell (sm_120, 32GB).
+                        L4-canonical experiments MUST hard-fail here per CLAUDE.md; none were run.
+torch_gpu_compat      : NO  -> installed torch 2.4.1+cu124 supports up to sm_90; sm_120 is unsupported.
+                        CUDA kernels will not run on this GPU with the current torch build.
+mamba_kernels_status  : UNAVAILABLE -> mamba-ssm and causal-conv1d absent; the c_eff=0.784 result
+                        (accelerated kernels) is NOT reproducible on this pod as configured.
+
+# --- ADDENDUM: CPU-only pod (this session, 2026-07-22 09:37:24 UTC) ---
+# This pod has NO GPU: `nvidia-smi` -> command not found (CPU-only start,
+# no L4 available in RunPod). torch.cuda would report is_available=False here.
+# Installed package versions are UNCHANGED vs the block above / the committed
+# requirements_lock.txt (pip freeze diff = empty). mamba-ssm and causal-conv1d
+# remain NOT INSTALLED, so the accelerated-kernel c_eff=0.784 result is still
+# not reproducible on this pod. conda: ABSENT -> conda_list.txt intentionally omitted.
+
+# =====================================================================
+# CANONICAL L4 ENVIRONMENT — provenance of c_eff = 0.7843 (E3.1)
+# =====================================================================
+# The GPU/CPU blocks above describe SAVE/SUPPORT pods only (feasibility,
+# gpu_is_l4=false). The paper's canonical latency/kernel results were
+# produced on a real NVIDIA L4 and are frozen in the committed per-run
+# metadata. Recorded here so the full L4 stack survives pod teardown
+# (results/.l4markers/ is gitignored and pod-local, so the exact
+# causal-conv1d version below would otherwise be lost).
+#
+#   gpu_name            : NVIDIA L4        (gpu_is_l4 = true)
+#   torch               : 2.4.1+cu124
+#   torch.version.cuda  : 12.4
+#   transformers        : 5.13.0
+#   mamba-ssm           : 2.3.2.post1      (source-built, fastpath ACTIVE)
+#   causal-conv1d       : 1.6.2.post1      (source-built)
+#   model               : falcon-h1-0.5b
+#   c_eff_component_only: 0.7842909001037901   (metric_is_gpu_agnostic = true)
+#   git_commit          : 5821caaeaeb6bd14e72640bfa802057a28f449a7
+#   captured            : 2026-07-11T18:19:52Z
+#
+# Sources (committed): results/E3.1/with_kernels.meta.json
+#                      results/E3.1/attention_only_kernels.meta.json
+#                      results/E3/benchmark_audit.meta.json, results/E4/long_context.meta.json
+# NOTE: "mamba-ssm/causal-conv1d NOT INSTALLED" above refers ONLY to the
+# Blackwell/CPU save-pods; on the canonical L4 both were installed and active.

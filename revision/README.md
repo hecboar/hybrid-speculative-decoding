@@ -23,7 +23,7 @@ The top level of this repository holds the pipeline of the original submission
 | fp32 losslessness control | `experiments/e03_fp32_match.py` | `results/E0/fp32_match.{csv,md,meta.json}` |
 | Ablation-perplexity / acceptance correlation | `experiments/e6_ppl.py`, `e6_spearman.py` | `results/E6` |
 | Early-exit forensics and sampling audit | `experiments/e05_early_exit_forensics.py`, `scripts/e04_sampling_audit.py` | `results/E0` |
-| Environment lock for the canonical NVIDIA L4 runs | `env/` | `results/E0/arch_manifest.json` |
+| Environment lock and kernel provenance for the canonical NVIDIA L4 runs | `env/` | `results/E0/env/`, `results/E0/arch_manifest.json` |
 
 ## Headline results
 
@@ -60,11 +60,34 @@ revision/
 ├── scripts/                 ← Sampling audit and v1-metric normalisation
 ├── tests/test_pure.py       ← CPU-only assertions for the math and IO paths
 ├── results/                 ← Raw CSV / JSON / pickle output, by experiment
+│   └── E0/env/              ← Pod environment lock + canonical L4 kernel provenance
 └── figures/                 ← The six figures of the published article
 ```
 
 `env/L4_README.md` was written for the working repository, where this directory
 was the root and `env/` was called `revision/`. Read its paths accordingly.
+
+## Environment and kernel provenance
+
+The `c_eff` figures of the kernels scenario hold only when the accelerated
+state-space kernels are actually active, so the stack that produced them is
+recorded rather than described:
+
+- `results/E0/env/key_versions.txt` — the canonical L4 stack behind
+  `c_eff = 0.7843`: `torch 2.4.1+cu124`, `transformers 5.13.0`,
+  `mamba-ssm 2.3.2.post1` and `causal-conv1d 1.6.2.post1`, both source-built
+  with the fastpath active. The same file also records the Blackwell and
+  CPU-only support pods, on which the kernels were *not* installed and the
+  kernel result is therefore not reproducible.
+- `results/E0/env/requirements_lock.txt` — full `pip freeze` of the pod.
+- `results/E0/env/nvidia_smi.txt` — the GPU as the driver reported it.
+- `results/E0/env/l4_provenance/` — verbatim copies of the pod-local kernel
+  status files. The originals lived in `results/.l4markers/`, which is
+  gitignored and pod-local, so these copies are what survived teardown.
+
+Every latency run also carries its own `*.meta.json` with the GPU name and a
+`gpu_is_l4` flag, so a reader can tell which rows are canonical without
+trusting the directory name.
 
 ## Reproducing
 

@@ -1,0 +1,35 @@
+Wed Jul 22 09:12:35 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.167.08             Driver Version: 580.167.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX PRO 4500 Blac...    On  |   00000000:81:00.0 Off |                  Off |
+| 30%   24C    P8             11W /  200W |       2MiB /  32623MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+# =====================================================================
+# ADDENDUM — CPU-only pod snapshot (this session, 2026-07-22 09:37:24 UTC)
+# =====================================================================
+# The block above was captured on an earlier RunPod pod (2026-07-22 09:12)
+# that had an NVIDIA RTX PRO 4500 Blackwell GPU (sm_120, NOT an L4).
+# This session runs on a DIFFERENT, CPU-only RunPod pod: no L4 was
+# available in RunPod, so the pod was started with CPU only (per user).
+#
+# `nvidia-smi` on this pod:
+#   bash: nvidia-smi: command not found   -> no NVIDIA driver / no GPU visible
+#
+# Persistent /workspace carries the same Python env as the GPU pod:
+# pip freeze is byte-identical to results/E0/env/requirements_lock.txt.
+# No CUDA/L4-canonical experiments were (or could be) run on this pod.
