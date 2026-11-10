@@ -1,11 +1,25 @@
-# Component-Aware Self-Speculative Decoding in Hybrid Language Models
+# Component-Aware Self-Speculative Decoding for Hybrid Language Models
 
+### An Architectural Viability Study
+
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.compeleceng.2026.111505-blue.svg)](https://doi.org/10.1016/j.compeleceng.2026.111505)
 [![arXiv](https://img.shields.io/badge/arXiv-2605.01106-b31b1b.svg)](https://arxiv.org/abs/2605.01106)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**TL;DR** — Self-speculative decoding viability in hybrid LMs is determined by topology, not scale. Parallel hybrids (Falcon-H1) reach α = 0.68 with SSM-only drafts; sequential hybrids (Qwen3.5) collapse to α = 0.038 — an 18× gap. The perplexity ratio from attention ablation (established in Paper 2) directly predicts which architecture will succeed.
+Published in *Computers and Electrical Engineering* **140** (2026) 111505.
 
-## Key Findings
+**TL;DR** — Hybrid language models can draft from their own state-space or linear-attention subgraph, with no separate drafter and no training. Whether that works is governed by functional attention-dependence rather than by the parallel/sequential label: across nine models, acceptance falls as the perplexity increase under attention suppression grows (Spearman ρ = −0.79 over the eight hybrids, p = 0.028). Acceptance viability does not by itself buy speedup — with hardware-measured draft/verify cost ratios, and even with the official accelerated state-space kernels active, the best theoretical speedup is still 0.986×.
+
+> **Scope.** This is an architectural viability study. The internal state-space drafter is acceptance-viable in the right architectures; turning that into wall-clock speedup is a separate execution-stack and modelling problem. The `T = 0.6` numbers are draft-quality diagnostics rather than lossless speculative-decoding results; all of the paper's claims rest on the greedy (`T = 0`) results.
+
+## Repository map
+
+| Where | Contents |
+|---|---|
+| top level | The pipeline of the original submission: notebook, checkpoints, round-1 CSVs and figures |
+| [`revision/`](revision/) | Everything added during peer review: the nine-model evaluation, the hardware-measured `c_eff` under the three execution scenarios, the statistical tests, the held-out-corpus replications, the fp32 losslessness control, and the NVIDIA L4 environment lock |
+
+## Key Findings (original submission)
 
 | # | Finding | Qwen3.5-0.8B (sequential) | Falcon-H1-0.5B (parallel) |
 |---|---------|--------------------------|--------------------------|
@@ -41,7 +55,14 @@
 │   ├── task_acceptance.csv                ← α per model × task (MMLU, GSM8K, Alpaca)
 │   ├── quality_check_v2.csv               ← Output match rates (correctness verification)
 │   └── paper2_correlation.csv             ← PPL ratio → acceptance rate correlation
-└── checkpoints/                           ← Intermediate experiment state (.pkl)
+├── checkpoints/                           ← Intermediate experiment state (.pkl)
+└── revision/                              ← Experiments added during peer review
+    ├── README.md                          ← What was added, and where it lives
+    ├── env/                               ← NVIDIA L4 environment lock + launch kit
+    ├── src/specdiag/                      ← Library extracted from the notebook
+    ├── experiments/                       ← One script per experiment (E0–E7)
+    ├── results/                           ← Raw CSV / JSON / pickle output
+    └── figures/                           ← The six figures of the published article
 ```
 
 ## Quick Start
@@ -95,6 +116,8 @@ print(corr[["display_name", "ppl_ratio", "alpha_k4"]].to_string())
 
 All experiments: k ∈ {2, 4, 8}, temperature ∈ {0.0, 0.6}, n = 200 trials per condition.
 
+The published study extends this to nine models — eight hybrids across five families (Falcon-H1, Qwen3.5, LFM2, Zamba2, Granite), plus the pure-Transformer control. Those runs, and the models added with them, are in [`revision/`](revision/).
+
 ## Evaluation Tasks
 
 | Task | Dataset | Metric |
@@ -131,10 +154,15 @@ Paper 2 established that in parallel hybrids the SSM absorbs most representation
 
 ```bibtex
 @article{borobia2026speculative,
-  title={Component-Aware Self-Speculative Decoding in Hybrid Language Models},
-  author={Borobia, Hector and Segu{\'i}-Mas, Elies and Tormo-Carb{\'o}, Guillermina},
-  journal={arXiv preprint arXiv:2605.01106},
-  year={2026}
+  title   = {Component-aware self-speculative decoding for hybrid language
+             models: An architectural viability study},
+  author  = {Borobia, Hector and Segu{\'i}-Mas, Elies and Tormo-Carb{\'o}, Guillermina},
+  journal = {Computers and Electrical Engineering},
+  volume  = {140},
+  pages   = {111505},
+  year    = {2026},
+  issn    = {0045-7906},
+  doi     = {10.1016/j.compeleceng.2026.111505}
 }
 ```
 
