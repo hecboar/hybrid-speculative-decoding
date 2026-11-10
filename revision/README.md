@@ -89,6 +89,21 @@ Every latency run also carries its own `*.meta.json` with the GPU name and a
 `gpu_is_l4` flag, so a reader can tell which rows are canonical without
 trusting the directory name.
 
+## Reading the code as released
+
+The code is released as it ran, not cleaned up afterwards, so that it stays
+byte-identical to what produced the published numbers. Two consequences:
+
+- Comments and docstrings refer to the authors' internal working repository —
+  `PLAN.md`, `CLAUDE.md`, numbered constraints, `report/DATA_FREEZE_DECISION.md`,
+  `checkpoints/v1_drive/`. Those files are not part of this release and nothing
+  in the reproduction path needs them.
+- `src/specdiag` carries `# UNVERIFIED (blocker B1)` markers from the weeks when
+  the available pod had a GPU the pinned torch build could not drive. Those
+  paths were all exercised afterwards on the canonical L4 and the RTX pod; see
+  the note at the top of `src/specdiag/README.md` for which result file
+  evidences each one.
+
 ## Reproducing
 
 The latency-sensitive experiments (E3.1, E3.2, E4) are hardware-bound and are

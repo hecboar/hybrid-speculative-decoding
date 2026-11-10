@@ -1,5 +1,30 @@
 # src/specdiag — package provenance & verification status
 
+> **Read this first.** The document below was written mid-revision and is kept
+> as the provenance record of how the package was extracted. Two things in it
+> are out of date for the released version:
+>
+> 1. **The `UNVERIFIED (blocker B1)` markers are historical.** They date from
+>    the weeks when the available pod carried an sm_120 GPU that the pinned
+>    torch build could not drive, so no GPU path could be exercised. Every path
+>    listed below as unverified was subsequently run on the canonical NVIDIA L4
+>    and on the RTX pod, and produced the results published with the article:
+>    `_attention_only` → `results/E3.1/attention_only_kernels.csv`,
+>    `_component_only` and `_component_only_partial` →
+>    `results/E3/partial_drafter_ablation.csv`, `specloop` →
+>    `results/E1/acceptance_new_models.csv`, `metrics.perplexity` →
+>    `results/E6/ppl_ablation.csv`, `timing` →
+>    `results/E3/benchmark_audit.csv`, `data.build_long_context_prompts` →
+>    `results/E4/long_context.csv`, `data.load_recent_corpus` →
+>    `results/E5/acceptance_recent_corpus.csv`. The markers were left in the
+>    source rather than edited out, so that the released code is byte-identical
+>    to the code that produced those numbers.
+> 2. **References to `PLAN.md`, `CLAUDE.md`, numbered constraints,
+>    `report/DATA_FREEZE_DECISION.md` and `checkpoints/v1_drive/`** point to the
+>    authors' internal working repository, which is not part of this release.
+>    They are left in place for traceability; nothing in the reproduction path
+>    depends on them.
+
 Refactor of the frozen v1 notebook `hybrid_self_speculative_decoding_v4.ipynb`
 (constraint 8: read-only) into a reusable package (PLAN §3). Extraction was done
 from a text dump of the notebook cells, never by executing or editing it.
