@@ -9,4 +9,4 @@ scipy==1.17.1
 matplotlib==3.11.0
 # torch: install an sm_89-capable build separately (e.g. `pip install torch`,
 # or reuse the pod image's torch). causal-conv1d + mamba-ssm are installed
-# best-effort by run_L4.sh (they have sm_89 wheels and activate Falcon's fast path).
+# by env/install_kernels.sh (sm_89 wheels; they activate Falcon's fast path).

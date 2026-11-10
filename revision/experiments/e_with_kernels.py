@@ -7,7 +7,7 @@ one E4-style length sweep — but with the OFF-THE-SHELF mamba-ssm + causal-conv
 wheels installed, which activate Falcon-H1's fast SSM path. Installing a released
 library is NOT kernel work under HARD CONSTRAINT 1.
 
-Runs ONLY if `mamba_ssm` and `causal_conv1d` import (the run_L4.sh block gates on
+Runs ONLY if `mamba_ssm` and `causal_conv1d` import (the caller gates on
 this and time-boxes the install). Latency ratios are canonical on L4.
 
 Outputs (separate files so the naive L4 rows are untouched):

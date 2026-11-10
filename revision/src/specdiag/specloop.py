@@ -13,8 +13,8 @@ FIDELITY SPLIT (important — do not merge these two paths):
     residual draw for reference / E0.4. It is deliberately NOT wired into the v1
     reproduction path.
 
-All GPU loops are UNVERIFIED (blocker B1: torch has no sm_120 kernels). The pure
-helpers (`accept_reject`, `residual_correction_token`) run on CPU with numpy.
+The pure helpers (`accept_reject`, `residual_correction_token`) run on CPU with
+numpy; the generation loops need a GPU.
 """
 import random
 import numpy as np
@@ -76,16 +76,16 @@ def accept_reject(draft_tokens, draft_probs, full_logits, temperature, rng=None)
     return na
 
 
-# ------------------------------- GPU loops (UNVERIFIED, blocker B1) -------------
+# ------------------------------- GPU loops -------------------------------------
 
 def simulate_acceptance(model, tokenizer, controller, strategy, k,
                         temperature=0.0, prompts=None, n_trials=None,
                         device=None, max_len=None):
-    """v1 acceptance simulator (Cell 19). Returns per-prompt accepted_lengths
-    (MANDATORY per PLAN constraint 4) plus aggregates.
+    """v1 acceptance simulator (Cell 19). Always returns the per-prompt
+    accepted_lengths alongside the aggregates.
 
-    UNVERIFIED (blocker B1). Draft uses use_cache=False full-seq recompute (α, not
-    timing). Verify is a single full forward. Correction token: n/a here (α only).
+    Draft uses use_cache=False full-seq recompute (acceptance, not timing). Verify
+    is a single full forward. No correction token is drawn here (acceptance only).
     """
     import torch
     from .stats import bootstrap_ci
@@ -142,8 +142,7 @@ def spec_generate_v1(model, tokenizer, controller, strategy, prompt, k,
     measure_speedup_v2 inner loop). Correction token drawn DIRECTLY from the full
     model's logits at the reject position (v1 behaviour — NOT Leviathan-exact).
 
-    UNVERIFIED (blocker B1). Returns the generated token ids and per-round
-    accepted lengths.
+    Returns the generated token ids and the per-round accepted lengths.
     """
     import torch
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")

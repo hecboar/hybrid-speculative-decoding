@@ -19,7 +19,7 @@ relatively cheaper at long context, lowering c_eff and enabling speedup) does
 **not** materialize in the current HuggingFace execution path. Both draft and
 full forwards scale the SAME way with L (AR tok/s falls ~linearly: 4.0->0.5),
 because the naive-mamba scan dominates BOTH and attention is a small add-on at
-these lengths. Per the PLAN honest-reporting rule, this SUPPORTS the
+these lengths. Reported as measured, this SUPPORTS the
 infrastructure-bottleneck framing (Ending B): the recurrent-state advantage is
 real in principle but is masked by the un-accelerated execution path. With
 optimized SSM kernels the draft forward would get cheaper faster than the full

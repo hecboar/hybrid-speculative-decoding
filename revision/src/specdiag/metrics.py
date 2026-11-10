@@ -1,15 +1,15 @@
-"""metrics.py — divergence, acceptance, and PPL metrics (PLAN §6).
+"""metrics.py - divergence, acceptance, and PPL metrics.
 
 Pure-math parts (dtv_full, dtv_top100, top1_agreement, kl_full_draft,
 acceptance_rate_from_lengths, tau_bar) operate on numpy arrays and are CPU-
-testable. `perplexity` needs a live model (UNVERIFIED, blocker B1) — it did NOT
-exist in the notebook (PPL values were hardcoded in Cell 30); it is new here.
+testable. `perplexity` needs a live model; it did not exist in the notebook
+(PPL values were hardcoded in Cell 30) and is new here.
 
 Metric conventions:
   A_k        = mean(accepted_lengths / k)               (v1's alpha; == tau_bar/k)
   tau_bar    = mean(accepted_lengths)
   D_TV       = 0.5 * sum_v |P_full - P_draft|           (v1 = FULL vocab)
-  dtv_top100 = same but restricted to the top-100 index union (PLAN §6 default)
+  dtv_top100 = same but restricted to the top-100 index union (default)
   top-1      = mean( argmax P_full == argmax P_draft )
   KL         = sum_v P_full * (log P_full - log P_draft)  (KL(P_full || P_draft))
 """
@@ -38,7 +38,7 @@ def tau_bar(accepted_lengths):
 
 
 def s_theory(tau, k, c):
-    """(1 + tau) / (1 + k*c)  — PLAN §6 replacement for the geometric-alpha Eq.1."""
+    """(1 + tau) / (1 + k*c)  - replacement for the geometric-alpha Eq. 1."""
     return (1.0 + tau) / (1.0 + k * c)
 
 
@@ -52,7 +52,7 @@ def dtv_full(p_full, p_draft):
 
 
 def dtv_top100(logits_full, logits_draft, topk=100):
-    """Top-k TV over the union of each distribution's top-k indices (PLAN §6).
+    """Top-k TV over the union of each distribution's top-k indices.
 
     Softmaxes the logits (full vocab), then sums 0.5*|p-q| over the union of the
     top-k indices of the two distributions. This is a lower bound on the full TV;
@@ -88,13 +88,13 @@ def divergence_summary(dtv_vals, top1_vals, kl_vals):
     }
 
 
-# ------------------------------- perplexity (NEW, UNVERIFIED) -------------------
+# ------------------------------- perplexity (new) ------------------------------
 
 def perplexity(model, tokenizer, texts, device=None, stride=512, max_length=1024):
     """Sliding-window perplexity over concatenated texts (E6).
 
-    NEW: no live PPL eval existed in the notebook. Standard HF sliding-window NLL.
-    UNVERIFIED (blocker B1): needs a working GPU/model.
+    No live PPL eval existed in the notebook. Standard HF sliding-window NLL.
+    Needs a loaded model.
     """
     import torch
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")

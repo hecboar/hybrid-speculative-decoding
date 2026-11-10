@@ -2,7 +2,7 @@
 """CPU-only pure-path tests for specdiag (no torch/GPU, no scipy required).
 
 Run: python tests/test_pure.py   (exits nonzero on any failure)
-Exercises the math/IO paths that must be correct regardless of blocker B1.
+Exercises the math and IO paths, which must be correct with or without a GPU.
 """
 import os
 import sys

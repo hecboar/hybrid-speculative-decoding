@@ -12,7 +12,7 @@ in `component_only` mode and compare the two next-token distributions at each
 prefix position (top-100 TV, top-1 agreement, KL). Aggregated over positions.
 
 Output: results/E1/divergence_new_models.csv + per-model pkl + meta.json.
-GPU-agnostic (blockers.md B1); non-L4 OK.
+GPU-agnostic; non-L4 OK.
 """
 import os
 import sys

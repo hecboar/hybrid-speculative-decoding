@@ -10,7 +10,7 @@ Then compute Spearman rho between log10(ppl_ratio) and A_4 across all models.
 Output: results/E6/ppl_ablation.csv
   (model, arch_paradigm, ppl_full, ppl_no_attn, ppl_ratio, log10_ratio, n_tokens)
 + results/E6/ppl_spearman.csv (rho, p, n) once A_4 is available.
-GPU: PPL is GPU-agnostic (blockers.md B1); non-L4 OK.
+GPU: PPL is GPU-agnostic; non-L4 OK.
 """
 import os
 import sys

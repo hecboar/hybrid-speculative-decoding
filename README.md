@@ -58,7 +58,7 @@ Published in *Computers and Electrical Engineering* **140** (2026) 111505.
 ├── checkpoints/                           ← Intermediate experiment state (.pkl)
 └── revision/                              ← Experiments added during peer review
     ├── README.md                          ← What was added, and where it lives
-    ├── env/                               ← NVIDIA L4 environment lock + launch kit
+    ├── env/                               ← Dependencies, kernel build, canonical L4 stack
     ├── src/specdiag/                      ← Library extracted from the notebook
     ├── experiments/                       ← One script per experiment (E0–E7)
     ├── results/                           ← Raw CSV / JSON / pickle output

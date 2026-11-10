@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """E1 / E1.b — all-token acceptance + tau_bar for new / scale-point models.
 
-PLAN Phase 1. On val-test (default 150 prompts), greedy, k in {2,4}: all-token
-acceptance A_k with bootstrap CI and mean accepted tokens tau_bar. Per-prompt
-accepted_lengths are ALWAYS saved (constraint 4).
+On val-test (default 150 prompts), greedy, k in {2,4}: all-token acceptance A_k
+with bootstrap CI and mean accepted tokens tau_bar. The per-prompt
+accepted_lengths are always saved.
 
 Metric convention (locked by E0.6): A_k := E[na]/k = tau_bar/k (v1's
 mean-fraction estimator, `bootstrap_ci(accepted_lengths/k)`), so new-model
@@ -18,7 +18,7 @@ Usage:
   python experiments/e1_acceptance.py <key> [<key> ...] [--k 2,4] [--n 150]
 Output: results/E1/acceptance_new_models.csv (appends/merges by row key) +
         results/E1/perprompt/<model>__<strategy>__k<k>__T<T>.pkl + meta.json
-GPU: non-L4 OK — acceptance is GPU-agnostic (blockers.md B1).
+GPU: non-L4 OK, acceptance is GPU-agnostic.
 """
 import os
 import sys

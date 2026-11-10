@@ -17,7 +17,7 @@ Run ONE model:   python experiments/e01_smoke.py <key>
 Run the default lineup: python experiments/e01_smoke.py
 
 GPU-agnostic de-risking (loadability/patchability/VRAM) — non-L4 GPU is valid
-(blockers.md B1). VRAM figures are indicative on 32 GB Blackwell, not an L4 SLA.
+VRAM figures are indicative on 32 GB Blackwell, not an L4 SLA.
 """
 import os
 import sys

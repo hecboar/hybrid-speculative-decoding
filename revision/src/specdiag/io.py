@@ -1,10 +1,9 @@
 """io.py — checkpoint-safe IO, CSV/meta writers, schema validation.
 
 `CheckpointManager` is ported from notebook Cell 5. The CSV writer uses the stdlib
-`csv` module (pandas is NOT a dependency — PLAN wants CSV output that works
-without it). `write_meta_json` and `validate_schema` are NEW (PLAN constraint 5:
-log torch/transformers/CUDA versions, GPU, dtype, commit hash — the notebook wrote
-no meta.json).
+`csv` module, so pandas is not a dependency. `write_meta_json` and
+`validate_schema` are new: every run logs its torch/transformers/CUDA versions,
+GPU, dtype and commit hash, which the notebook did not do.
 """
 import os
 import re
@@ -132,7 +131,7 @@ def _git_commit(cwd=None):
 
 
 def write_meta_json(path, cwd=None, **fields):
-    """Capture provenance (PLAN constraint 5): versions, GPU, dtype, commit, ts.
+    """Capture provenance: versions, GPU, dtype, commit hash, timestamp.
 
     Any extra keyword fields are merged in. Degrades gracefully if torch/
     transformers are missing or CUDA is broken.

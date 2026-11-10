@@ -23,6 +23,8 @@ from specdiag.io import write_csv  # noqa: E402
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 E6 = os.path.join(REPO, "results", "E6")
+# The v1 acceptance pickles. In this release they are the repository's
+# top-level checkpoints/ directory.
 DRIVE = os.path.join(REPO, "checkpoints", "v1_drive")
 ACC_CSV = os.path.join(REPO, "results", "E1", "acceptance_new_models.csv")
 PPL_CSV = os.path.join(E6, "ppl_ablation.csv")

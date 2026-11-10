@@ -1,4 +1,4 @@
-"""stats.py — statistical battery (PLAN §3 stats.py, E5.4).
+"""stats.py - statistical battery (E5.4).
 
 `bootstrap_ci` is ported verbatim from notebook Cell 5 (the only stat the notebook
 had). Everything else is NEW for the revision. scipy is imported LAZILY inside

@@ -9,7 +9,7 @@ viable SEQUENTIAL model granite-4.0-h-micro with the canonical component_only
 verbatim: `data.get_task_prompts` (task loader) + `specloop.simulate_acceptance`
 (v1 estimator, raw forwards, use_cache=False) + `stats.bootstrap_ci`.
 
-Acceptance is GPU-agnostic (blockers.md B1): nvidia-smi is logged to meta.json but
+Acceptance is GPU-agnostic: nvidia-smi is logged to meta.json but
 there is NO L4 hard-fail. Only the DRAFT MODE / prompt SOURCE differ from E1; the
 estimator is unchanged, so these rows drop straight into Table 5.
 

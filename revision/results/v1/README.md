@@ -2,13 +2,12 @@
 
 This directory is a **frozen, read-only snapshot** of the eleven raw v1 result
 CSVs that back the submitted manuscript
-(`CAEE_Manuscript_Component_Aware_Self_Speculative_Decoding.pdf` /
-`paper4_CEE_final.tex`), copied verbatim from the `results/` root on
-2026-07-07 (Phase 0, PLAN §3 first action).
+of the original submission, copied verbatim from the `results/` root on
+2026-07-07, before any revision experiment ran.
 
-**Do not modify anything in this directory** (CLAUDE.md standing instruction).
-All new outputs go to `results/<experiment_id>/`; nothing is ever written here
-or to `results/` root. These files are the input to E0.6 (metric normalization,
+**Nothing in this directory is ever modified.** All revision output goes to
+`results/<experiment_id>/`; nothing is written here or to the `results/`
+root. These files are the input to E0.6 (metric normalization,
 `results/E0/v1_metrics_normalized.csv`) and E0.2 (per-prompt data audit).
 
 ## Files (11)
@@ -29,11 +28,10 @@ or to `results/` root. These files are the input to E0.6 (metric normalization,
 
 ## Duplicate `*_v2` vs non-`v2` files — authoritative version
 
-Per PLAN §3: where a `*_v2.csv` and its non-`v2` sibling coexist, **the `_v2`
-file is authoritative** (it matches the submitted paper). Both are kept here;
-the discrepancy is recorded below. These two generations plausibly correspond
-to the `*_v3` vs `*_v3fix` pickle generations on Drive (to be confirmed in E0.2
-once `checkpoints/v1_drive/` is populated).
+Where a `*_v2.csv` and its non-`v2` sibling coexist, **the `_v2` file is
+authoritative** (it matches the submitted paper). Both are kept here;
+the discrepancy is recorded below. These two generations correspond to the `*_v3` and `*_v3fix` pickle
+generations in the repository's top-level `checkpoints/` directory.
 
 ### `quality_check.csv` (superseded) vs `quality_check_v2.csv` (authoritative)
 
@@ -59,7 +57,7 @@ numbers differ at the ~1–15% level (re-measurement noise / cache handling), e.
 falcon-h1-0.5b k=2 speedup 0.3483 (v1) → **0.3420 (v2)**;
 qwen2.5-0.5b k=2 0.5753 (v1) → **0.4959 (v2)**. The `_v2` values back the
 submitted Table 7. **Latency numbers must never be mixed between generations**
-(PLAN §4 E0.2 provenance rule).
+(E0.2 provenance rule).
 
 ## Notes carried into Phase 0
 
@@ -67,7 +65,7 @@ submitted Table 7. **Latency numbers must never be mixed between generations**
   S_theory = (1+τ̄)/(1+k·c) with τ̄ = `mean_accepted_length` and c = `flop_ratio`
   (verified: Falcon-H1-0.5B k=2 → (1+1.36)/(1+2·0.7843137) = 0.918779, matching
   the stored 0.9187786). The paper's textual "geometric-α Eq. 1" is being
-  removed in the revision (PLAN §6); the CSV itself needs no numeric change,
+  removed in the revision; the CSV itself needs no numeric change,
   only re-labelling. This is finalised in `results/E0/v1_metrics_normalized.csv`.
 - These CSVs are **aggregates only** — no per-prompt vectors. Whether per-prompt
   records exist for the R2.3 permutation test (E5.3) depends on the Drive

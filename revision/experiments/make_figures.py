@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate paper figures (PLAN §7.3). Reads the results CSVs and writes PDF+PNG
+"""Regenerate the paper figures. Reads the results CSVs and writes PDF+PNG
 into figures/. Each figure is skipped (with a note) if its source CSV is absent,
 so this can run at any point. CPU only.
 
@@ -29,7 +29,6 @@ import matplotlib.pyplot as plt  # noqa: E402
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 FIG = os.path.join(REPO, "figures")
 os.makedirs(FIG, exist_ok=True)
-DRIVE = os.path.join(REPO, "checkpoints", "v1_drive")
 
 PAR_C = {"parallel": "#2563eb", "sequential": "#dc2626", "transformer": "#6b7280"}
 

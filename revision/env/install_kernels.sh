@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # =============================================================================
-# build_kernels_only.sh — reinstall the official mamba-ssm/causal-conv1d fast
-# path on a fresh (ephemeral) pod, using the EXACT recipe proven in
-# rerun_kernels4.sh (source build, no cache, no deps, torch protected).
+# install_kernels.sh - install the official mamba-ssm/causal-conv1d fast path
+# used for the kernels scenario: source build, no cache, no deps, torch
+# protected.
 #
 # torch is assumed already canonical (2.4.1+cu124); this script only rebuilds
 # the kernels. It does NOT run any experiment — the caller does that after the

@@ -1,9 +1,8 @@
 """timing.py — CUDA-event timing helpers + draft/verify/accept breakdown.
 
 Ported from the notebook CUDA-event pattern (Cells 11, 12, 24, 42). The notebook
-timed only the WHOLE draft->verify->accept round; PLAN E3.2 needs a finer
-per-phase breakdown, scaffolded here (marked NEW). All timing needs a working GPU
-(UNVERIFIED, blocker B1).
+timed only the WHOLE draft->verify->accept round; E3.2 needs a finer per-phase
+breakdown, added here. All timing needs a GPU.
 """
 from contextlib import contextmanager
 
@@ -53,7 +52,7 @@ class RoundBreakdown:
 
     Records draft_ms / verify_ms / accept_ms / overhead_ms separately (the v1 code
     only had one enclosing event pair per prompt). Time each phase with cuda_timer
-    and feed the ms into `add`. UNVERIFIED end-to-end (blocker B1).
+    and feed the ms into `add`.
     """
     def __init__(self):
         self.draft_ms = 0.0

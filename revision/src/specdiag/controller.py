@@ -1,4 +1,4 @@
-"""controller.py — DraftModeController (PLAN §3.1).
+"""controller.py - DraftModeController.
 
 Persistent, flag-based mode switching by forward-monkeypatching decoder layers /
 attention submodules. NO hook registration/removal inside the decoding loop
@@ -17,7 +17,7 @@ Legacy aliases preserved so existing call sites keep working:
   layer_skip -> layerskip(0.33)
   early_exit -> early_exit(0.5)
 
-torch imported lazily; module imports on CPU / broken-CUDA host (blocker B1).
+torch is imported lazily, so the module imports on a CPU-only host.
 """
 from .models import MODEL_SPECS, get_decoder_layers
 
@@ -43,9 +43,9 @@ def _find_attention_submodule(layer):
 def _find_ssm_submodule(layer):
     """(module, name) of the SSM/Mamba/mixer submodule (for attention_only).
 
-    UNVERIFIED (blocker B1): submodule naming varies across Falcon-H1 releases
-    (mamba / mixer / ssm). We scan children by class/attr name; confirm against a
-    real checkpoint's named_children() before trusting attention_only results.
+    Submodule naming varies across Falcon-H1 releases (mamba / mixer / ssm), so
+    children are scanned by class and attribute name. A release that uses another
+    name needs it added to the tuple below.
     """
     for attr in ("mamba", "ssm", "mixer"):
         if hasattr(layer, attr):
@@ -62,8 +62,8 @@ def _make_zero_attn_forward(attn_mod):
 
     LIVE Cell-10 hotfix: Falcon self_attn expects exactly 2 return values.
     Never computes QKV — returns (zeros_like(h), None) immediately, so the
-    measured cost of the zeroed branch is genuinely ~0 (PLAN §3.1 requirement:
-    short-circuit BEFORE computing attention, not compute-then-zero).
+    measured cost of the zeroed branch is genuinely ~0: it short-circuits BEFORE
+    computing attention, rather than computing and then zeroing.
     """
     import torch
     orig_forward = attn_mod.forward
@@ -174,9 +174,8 @@ def _make_identity_layer_forward_tuple(layer):
 def _make_zero_submodule_forward(mod):
     """Submodule returns zeros_like(hidden_states) (for attention_only SSM-zeroing).
 
-    UNVERIFIED (blocker B1): return arity of the SSM/mixer submodule is unknown;
-    we return a bare zeros tensor and fall back to a 2-tuple if the caller unpacks.
-    Must be validated against a real Falcon-H1 forward signature.
+    The return arity of the SSM/mixer submodule varies across releases, so a bare
+    zeros tensor is returned, falling back to a 2-tuple when the caller unpacks.
     """
     import torch
     orig_forward = mod.forward
@@ -198,7 +197,7 @@ def _make_zero_submodule_forward(mod):
 def _kept_layer_ids(n, frac, policy):
     """Indices of layers to KEEP for component_only_partial / layerskip.
 
-    Always keeps layer 0 and layer n-1 (PLAN §3.1). frac in (0,1].
+    Always keeps layer 0 and layer n-1. frac in (0,1].
       uniform_stride         : evenly spaced kept indices.
       keep_first_last_stride : keep 0 and n-1 explicitly, fill the middle by stride.
     """
@@ -350,7 +349,7 @@ class DraftModeController:
         Keeps `frac` of layers (always layer 0 and L-1)."""
         arch = self.spec["arch_family"]
         if arch != "falcon_parallel_hybrid":
-            raise ValueError("component_only_partial is parallel-only (PLAN §3.1)")
+            raise ValueError("component_only_partial is parallel-only")
         layers, _ = get_decoder_layers(self.model)
         n = len(layers)
         keep = set(_kept_layer_ids(n, frac, policy))
@@ -367,13 +366,14 @@ class DraftModeController:
         """Parallel only: zero the SSM branch (diagnostic). NEW — not in notebook."""
         arch = self.spec["arch_family"]
         if arch != "falcon_parallel_hybrid":
-            raise ValueError("attention_only is parallel-only (PLAN §3.1)")
+            raise ValueError("attention_only is parallel-only")
         layers, _ = get_decoder_layers(self.model)
         for idx, layer in enumerate(layers):
             ssm_mod, _ = _find_ssm_submodule(layer)
             if ssm_mod is not None:
                 self._patch(f"attn_only_{idx}", ssm_mod, _make_zero_submodule_forward)
-        # UNVERIFIED (blocker B1): if no ssm submodule was found, patched is empty.
+        # If no SSM submodule was found nothing is patched, and the draft falls
+        # back to the unmodified forward.
 
     def _layerskip(self, frac):
         """Skip a contiguous middle block of `frac` layers (Cell 9 _layer_skip)."""
@@ -399,7 +399,7 @@ class DraftModeController:
         """Sequential only: suppress all attention layers EXCEPT keep_ids (E2)."""
         arch = self.spec["arch_family"]
         if arch != "qwen_sequential_hybrid":
-            raise ValueError("attn_subset is sequential-only (PLAN §3.1)")
+            raise ValueError("attn_subset is sequential-only")
         layers, _ = get_decoder_layers(self.model)
         lt_raw = getattr(self.model.config, "layer_types", None)
         if lt_raw is None:

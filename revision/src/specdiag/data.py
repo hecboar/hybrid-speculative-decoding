@@ -27,7 +27,7 @@ def load_wikitext(split="validation", threshold=100, n=None):
 
 
 def val_tune_test_split(prompts, n_tune=50):
-    """PLAN constraint 6: val-tune = first 50, val-test = the rest.
+    """Split: val-tune = the first 50 prompts, val-test = the rest.
 
     Returns (val_tune, val_test). All tuning choices use val_tune; all reported
     numbers use val_test. Deterministic (no shuffle — preserves the fixed WikiText

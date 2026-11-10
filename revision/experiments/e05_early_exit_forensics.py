@@ -17,7 +17,7 @@ which is WHY the full model accepts nothing. Whatever it is, we report it
 verbatim (PLAN E0.5).
 
 Output: results/E0/early_exit_forensics.txt (+ .meta.json).
-GPU-agnostic (token identity / entropy) — non-L4 GPU is valid (blockers.md B1).
+GPU-agnostic (token identity / entropy), so a non-L4 GPU is valid here.
 """
 import os
 import sys

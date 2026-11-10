@@ -46,7 +46,6 @@ plus results/E0/fp32_match.md (human summary) and meta.json (provenance).
 
 GPU note: run on RTX PRO 4500 (sm_120), NOT an L4. This experiment is
 GPU-agnostic (token identity / logit margins), so the non-L4 GPU is valid here
-(see results/E0/blockers.md B1).
 """
 import os
 import sys
@@ -203,7 +202,7 @@ def main():
              "tok. Metric: batched-verify argmax vs incremental-AR argmax, scored by "
              "the audited v1 `accept_reject` (greedy). Divergences are drafter-"
              "independent under greedy decoding (see script docstring).",
-             "GPU: RTX PRO 4500 (non-L4; GPU-agnostic metric — see blockers.md B1).",
+             "GPU: RTX PRO 4500 (non-L4; the metric is GPU-agnostic).",
              "",
              "| model | dtype | token_agreement | exact_match_rate | "
              "mean_matched_prefix | median_margin_at_div |",

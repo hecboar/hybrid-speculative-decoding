@@ -3,8 +3,8 @@
 # mamba-ssm imports (e.g. GreedySearchDecoderOnlyOutput) to their renamed modern
 # equivalents in transformers.generation, so `import mamba_ssm` succeeds against
 # a modern (pinned) transformers WITHOUT modifying either library on disk.
-# Applied only as Step 2 of the E_KERNELS escalation ladder. No-op if the modern
-# names are absent or the old names already exist.
+# Put this directory on PYTHONPATH only if `import mamba_ssm` fails on the
+# renamed symbols. No-op if the modern names are absent or the old ones exist.
 try:
     import transformers.generation as _g
 

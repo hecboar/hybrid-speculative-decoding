@@ -1,7 +1,7 @@
 # E0.3 — FP32 match-rate control (R2.5, R3)
 
 Greedy, 30 prompts, 64 new tokens, prefix<= 256 tok. Metric: batched-verify argmax vs incremental-AR argmax, scored by the audited v1 `accept_reject` (greedy). Divergences are drafter-independent under greedy decoding (see script docstring).
-GPU: RTX PRO 4500 (non-L4; GPU-agnostic metric — see blockers.md B1).
+GPU: RTX PRO 4500 (non-L4; the metric is GPU-agnostic).
 
 | model | dtype | token_agreement | exact_match_rate | mean_matched_prefix | median_margin_at_div |
 |---|---|---|---|---|---|

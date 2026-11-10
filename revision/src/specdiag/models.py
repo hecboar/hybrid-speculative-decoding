@@ -1,14 +1,14 @@
 """models.py — model registry + loading + FLOP model.
 
 Extracted from notebook Cell 7 (Cell 1A) and the FLOP estimators in Cell 9.
-torch/transformers are imported lazily inside functions so this module imports
-on a CPU-only / broken-CUDA host (blocker B1).
+torch/transformers are imported lazily inside functions, so this module imports
+on a CPU-only host.
 
 Key exports:
   MODEL_SPECS                       registry keyed by model_key
   get_decoder_layers(model)         -> (layers, path)
   get_max_inference_seq_length(key) -> int
-  load_model_and_tokenizer(key)     -> (model, tokenizer)   [UNVERIFIED: needs GPU]
+  load_model_and_tokenizer(key)     -> (model, tokenizer)   [needs a GPU]
   unload_model(key)
   estimate_flop_ratio(key, seq_len) -> c_draft/c_full
   estimate_flops_gflops(key, seq_len) -> (draft_gf, full_gf)
@@ -105,8 +105,8 @@ def get_max_inference_seq_length(model_key):
 def load_model_and_tokenizer(model_key, log=print):
     """Load (model, tokenizer); writes arch_info side-effects into MODEL_SPECS.
 
-    UNVERIFIED (blocker B1): needs a working GPU stack. Faithful to Cell 7 except
-    the HF token is read from env (never hardcoded) and OOM messages are kept.
+    Faithful to Cell 7 except that the HF token is read from the environment
+    (never hardcoded) and OOM messages are kept.
     """
     import gc
     import torch
